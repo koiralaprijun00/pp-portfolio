@@ -1,0 +1,8 @@
+export { Hero } from './Hero/config'
+export { Impact } from './Impact/config'
+export { Publications } from './Publications/config'
+export { MediaOutreach } from './MediaOutreach/config'
+export { FeaturedWorks } from './FeaturedWorks/config'
+export { Affiliations } from './Affiliations/config'
+export { Testimonials } from './Testimonials/config'
+export { People } from './People/config'
