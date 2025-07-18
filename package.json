@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.47.0",
-    "@payloadcms/db-mongodb": "^3.48.0",
+    "@payloadcms/db-mongodb": "3.47.0",
     "@payloadcms/db-vercel-postgres": "3.47.0",
     "@payloadcms/live-preview-react": "3.47.0",
     "@payloadcms/next": "3.47.0",
