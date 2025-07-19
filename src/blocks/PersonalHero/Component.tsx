@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import { CMSLink } from '@/components/Link'
-import { Media } from '@/components/Media'
 
 interface PersonalHeroProps {
   name: string
   title: string
   subtitle: string
   description: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imageUrl?: any // Can be string URL or media object
   primaryCTA?: {
     label: string
@@ -33,7 +33,7 @@ export const PersonalHero = ({
   secondaryCTA,
   stats,
 }: PersonalHeroProps) => (
-  <section className="py-20 px-8 bg-gradient-to-br from-blue-50 to-white">
+  <section className="pb-16 px-8">
     <div className="container">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
@@ -84,29 +84,18 @@ export const PersonalHero = ({
         {/* Right Image */}
         <div className="flex justify-center lg:justify-end">
           {imageUrl ? (
-            <div className="relative">
-              {typeof imageUrl === 'string' ? (
-                <Image
-                  src={imageUrl}
-                  alt={name}
-                  width={400}
-                  height={500}
-                  className="object-cover rounded-none shadow-2xl"
-                  style={{ borderRadius: 0 }}
-                />
-              ) : (
-                <Media
-                  resource={imageUrl}
-                  alt={name}
-                  className="w-[400px] h-[500px] object-cover rounded-none shadow-2xl"
-                />
-              )}
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 opacity-50"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-200 opacity-30"></div>
+            <div className="relative w-[500px] h-[600px]">
+              <Image
+                src={typeof imageUrl === 'string' ? imageUrl : imageUrl.url || imageUrl.filename}
+                alt={name}
+                width={500}
+                height={600}
+                className="w-full h-full object-cover rounded-none shadow-2xl"
+                style={{ borderRadius: 0 }}
+              />
             </div>
           ) : (
-            <div className="w-80 h-96 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center rounded-none shadow-2xl">
+            <div className="w-[500px] h-[600px] bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center rounded-none shadow-2xl">
               <div className="text-center text-blue-600">
                 <div className="text-6xl mb-4">👨‍🎓</div>
                 <p className="text-lg font-medium">Professional Photo</p>
