@@ -197,7 +197,6 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | FormBlock
-    | HeroBlock
     | ImpactBlock
     | PublicationsBlock
     | MediaOutreachBlock
@@ -750,19 +749,6 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroBlock".
- */
-export interface HeroBlock {
-  name: string;
-  title: string;
-  intro: string;
-  imageUrl?: (string | null) | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hero';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ImpactBlock".
  */
 export interface ImpactBlock {
@@ -1186,7 +1172,6 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        hero?: T | HeroBlockSelect<T>;
         impact?: T | ImpactBlockSelect<T>;
         publications?: T | PublicationsBlockSelect<T>;
         mediaOutreach?: T | MediaOutreachBlockSelect<T>;
@@ -1290,18 +1275,6 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroBlock_select".
- */
-export interface HeroBlockSelect<T extends boolean = true> {
-  name?: T;
-  title?: T;
-  intro?: T;
-  imageUrl?: T;
   id?: T;
   blockName?: T;
 }

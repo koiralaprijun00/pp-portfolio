@@ -7,7 +7,7 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { Hero } from '../../blocks/Hero/config'
+
 import { Impact } from '../../blocks/Impact/config'
 import { Publications } from '../../blocks/Publications/config'
 import { MediaOutreach } from '../../blocks/MediaOutreach/config'
@@ -89,7 +89,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 MediaBlock,
                 Archive,
                 FormBlock,
-                Hero,
+
                 Impact,
                 Publications,
                 MediaOutreach,

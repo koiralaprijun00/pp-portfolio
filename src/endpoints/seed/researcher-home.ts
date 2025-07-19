@@ -104,16 +104,6 @@ export const researcherHome: (
       },
     },
     layout: [
-      // Hero Section Block
-      {
-        blockName: 'Hero Section',
-        blockType: 'hero',
-        name: 'Prakash Paudel',
-        title: 'Professor of Computer Science and Engineering',
-        intro:
-          'Leading researcher in artificial intelligence, machine learning, and sustainable computing. Dedicated to advancing technology for social impact and environmental sustainability.',
-        imageUrl: heroImage.id,
-      },
       // Impact Section Block
       {
         blockName: 'Impact Section',

@@ -7,7 +7,7 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import { HeroSection } from '@/blocks/Hero/Component'
+
 import { ImpactSection } from '@/blocks/Impact/Component'
 import { PublicationsSection } from '@/blocks/Publications/Component'
 import { MediaOutreachSection } from '@/blocks/MediaOutreach/Component'
@@ -22,7 +22,7 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  hero: HeroSection,
+
   impact: ImpactSection,
   publications: PublicationsSection,
   mediaOutreach: MediaOutreachSection,
