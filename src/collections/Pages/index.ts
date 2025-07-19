@@ -7,6 +7,14 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
+import { Hero } from '../../blocks/Hero/config'
+import { Impact } from '../../blocks/Impact/config'
+import { Publications } from '../../blocks/Publications/config'
+import { MediaOutreach } from '../../blocks/MediaOutreach/config'
+import { FeaturedWorks } from '../../blocks/FeaturedWorks/config'
+import { Affiliations } from '../../blocks/Affiliations/config'
+import { Testimonials } from '../../blocks/Testimonials/config'
+import { People } from '../../blocks/People/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -75,7 +83,21 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                Hero,
+                Impact,
+                Publications,
+                MediaOutreach,
+                FeaturedWorks,
+                Affiliations,
+                Testimonials,
+                People,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

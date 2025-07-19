@@ -1,6 +1,13 @@
 import React from 'react'
 
-export const HeroSection = ({ name, title, intro, imageUrl }) => (
+interface HeroSectionProps {
+  name: string
+  title: string
+  intro: string
+  imageUrl?: string
+}
+
+export const HeroSection = ({ name, title, intro, imageUrl }: HeroSectionProps) => (
   <section className="bg-blue-700 text-white py-16 px-8 flex items-center">
     {imageUrl && (
       <img

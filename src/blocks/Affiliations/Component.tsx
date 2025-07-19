@@ -1,6 +1,17 @@
 import React from 'react'
 
-export const AffiliationsSection = ({ affiliations }) => (
+interface Affiliation {
+  name: string
+  logo?: string
+  url?: string
+  description?: string
+}
+
+interface AffiliationsSectionProps {
+  affiliations: Affiliation[]
+}
+
+export const AffiliationsSection = ({ affiliations }: AffiliationsSectionProps) => (
   <section className="py-16 px-8 bg-white">
     <h2 className="text-3xl font-bold text-blue-700 mb-8">Institutional Affiliations</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

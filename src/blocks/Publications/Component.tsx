@@ -1,6 +1,21 @@
 import React from 'react'
 
-export const PublicationsSection = ({ researchArticles, popularArticles, blogPosts }) => (
+interface Article {
+  title: string
+  url: string
+}
+
+interface PublicationsSectionProps {
+  researchArticles: Article[]
+  popularArticles: Article[]
+  blogPosts: Article[]
+}
+
+export const PublicationsSection = ({
+  researchArticles,
+  popularArticles,
+  blogPosts,
+}: PublicationsSectionProps) => (
   <section className="py-16 px-8 bg-white">
     <h2 className="text-3xl font-bold text-blue-700 mb-8">Publications</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

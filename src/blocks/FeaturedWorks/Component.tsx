@@ -1,6 +1,17 @@
 import React from 'react'
 
-export const FeaturedWorksSection = ({ works }) => (
+interface Work {
+  title: string
+  image?: string
+  url?: string
+  description?: string
+}
+
+interface FeaturedWorksSectionProps {
+  works: Work[]
+}
+
+export const FeaturedWorksSection = ({ works }: FeaturedWorksSectionProps) => (
   <section className="py-16 px-8 bg-white">
     <h2 className="text-3xl font-bold text-blue-700 mb-8">Featured Works</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

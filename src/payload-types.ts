@@ -191,7 +191,21 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | HeroBlock
+    | ImpactBlock
+    | PublicationsBlock
+    | MediaOutreachBlock
+    | FeaturedWorksBlock
+    | AffiliationsBlock
+    | TestimonialsBlock
+    | PeopleBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -736,6 +750,153 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  name: string;
+  title: string;
+  intro: string;
+  imageUrl?: (string | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImpactBlock".
+ */
+export interface ImpactBlock {
+  stats: {
+    label: string;
+    value: number;
+    description?: string | null;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'impact';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PublicationsBlock".
+ */
+export interface PublicationsBlock {
+  researchArticles?:
+    | {
+        title: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  popularArticles?:
+    | {
+        title: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  blogPosts?:
+    | {
+        title: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'publications';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaOutreachBlock".
+ */
+export interface MediaOutreachBlock {
+  media?:
+    | {
+        title: string;
+        url: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaOutreach';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeaturedWorksBlock".
+ */
+export interface FeaturedWorksBlock {
+  works?:
+    | {
+        title: string;
+        image?: (string | null) | Media;
+        url?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featuredWorks';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AffiliationsBlock".
+ */
+export interface AffiliationsBlock {
+  affiliations?:
+    | {
+        name: string;
+        logo?: (string | null) | Media;
+        url?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'affiliations';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock".
+ */
+export interface TestimonialsBlock {
+  testimonials?:
+    | {
+        quote: string;
+        author: string;
+        authorTitle?: string | null;
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PeopleBlock".
+ */
+export interface PeopleBlock {
+  people?:
+    | {
+        name: string;
+        title?: string | null;
+        image?: (string | null) | Media;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'people';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1025,6 +1186,14 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        hero?: T | HeroBlockSelect<T>;
+        impact?: T | ImpactBlockSelect<T>;
+        publications?: T | PublicationsBlockSelect<T>;
+        mediaOutreach?: T | MediaOutreachBlockSelect<T>;
+        featuredWorks?: T | FeaturedWorksBlockSelect<T>;
+        affiliations?: T | AffiliationsBlockSelect<T>;
+        testimonials?: T | TestimonialsBlockSelect<T>;
+        people?: T | PeopleBlockSelect<T>;
       };
   meta?:
     | T
@@ -1121,6 +1290,147 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  name?: T;
+  title?: T;
+  intro?: T;
+  imageUrl?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImpactBlock_select".
+ */
+export interface ImpactBlockSelect<T extends boolean = true> {
+  stats?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PublicationsBlock_select".
+ */
+export interface PublicationsBlockSelect<T extends boolean = true> {
+  researchArticles?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        id?: T;
+      };
+  popularArticles?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        id?: T;
+      };
+  blogPosts?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaOutreachBlock_select".
+ */
+export interface MediaOutreachBlockSelect<T extends boolean = true> {
+  media?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeaturedWorksBlock_select".
+ */
+export interface FeaturedWorksBlockSelect<T extends boolean = true> {
+  works?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        url?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AffiliationsBlock_select".
+ */
+export interface AffiliationsBlockSelect<T extends boolean = true> {
+  affiliations?:
+    | T
+    | {
+        name?: T;
+        logo?: T;
+        url?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock_select".
+ */
+export interface TestimonialsBlockSelect<T extends boolean = true> {
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        author?: T;
+        authorTitle?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PeopleBlock_select".
+ */
+export interface PeopleBlockSelect<T extends boolean = true> {
+  people?:
+    | T
+    | {
+        name?: T;
+        title?: T;
+        image?: T;
+        url?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

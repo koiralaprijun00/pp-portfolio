@@ -1,6 +1,16 @@
 import React from 'react'
 
-export const ImpactSection = ({ stats }) => (
+interface Stat {
+  label: string
+  value: number
+  description?: string
+}
+
+interface ImpactSectionProps {
+  stats: Stat[]
+}
+
+export const ImpactSection = ({ stats }: ImpactSectionProps) => (
   <section className="py-16 px-8 bg-white">
     <h2 className="text-3xl font-bold text-blue-700 mb-8">My Impacts</h2>
     <div className="grid grid-cols-2 md:grid-cols-3 gap-8">

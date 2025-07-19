@@ -1,6 +1,17 @@
 import React from 'react'
 
-export const PeopleSection = ({ people }) => (
+interface Person {
+  name: string
+  title?: string
+  image?: string
+  url?: string
+}
+
+interface PeopleSectionProps {
+  people: Person[]
+}
+
+export const PeopleSection = ({ people }: PeopleSectionProps) => (
   <section className="py-16 px-8 bg-white">
     <h2 className="text-3xl font-bold text-blue-700 mb-8">People I Work With</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
