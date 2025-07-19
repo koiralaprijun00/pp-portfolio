@@ -21,32 +21,15 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   )
 
   const setTheme = useCallback((themeToSet: Theme | null) => {
-    if (themeToSet === null) {
-      window.localStorage.removeItem(themeLocalStorageKey)
-      const implicitPreference = getImplicitPreference()
-      document.documentElement.setAttribute('data-theme', implicitPreference || '')
-      if (implicitPreference) setThemeState(implicitPreference)
-    } else {
-      setThemeState(themeToSet)
-      window.localStorage.setItem(themeLocalStorageKey, themeToSet)
-      document.documentElement.setAttribute('data-theme', themeToSet)
-    }
+    // Always use light theme regardless of input
+    setThemeState('light')
+    window.localStorage.setItem(themeLocalStorageKey, 'light')
+    document.documentElement.setAttribute('data-theme', 'light')
   }, [])
 
   useEffect(() => {
-    let themeToSet: Theme = defaultTheme
-    const preference = window.localStorage.getItem(themeLocalStorageKey)
-
-    if (themeIsValid(preference)) {
-      themeToSet = preference
-    } else {
-      const implicitPreference = getImplicitPreference()
-
-      if (implicitPreference) {
-        themeToSet = implicitPreference
-      }
-    }
-
+    // Always use light theme
+    const themeToSet: Theme = 'light'
     document.documentElement.setAttribute('data-theme', themeToSet)
     setThemeState(themeToSet)
   }, [])
