@@ -197,6 +197,7 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | FormBlock
+    | PersonalHeroBlock
     | ImpactBlock
     | PublicationsBlock
     | MediaOutreachBlock
@@ -749,6 +750,71 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PersonalHeroBlock".
+ */
+export interface PersonalHeroBlock {
+  /**
+   * Full name (e.g., "Prakash Paudel")
+   */
+  name: string;
+  /**
+   * Main professional title (e.g., "Professor of Computer Science")
+   */
+  title: string;
+  /**
+   * Additional title or specialization (e.g., "AI & Machine Learning Researcher")
+   */
+  subtitle: string;
+  /**
+   * Brief professional description (2-3 sentences)
+   */
+  description: string;
+  /**
+   * Upload a professional headshot or photo
+   */
+  imageUrl?: (string | null) | Media;
+  /**
+   * Add key statistics to highlight achievements
+   */
+  stats?:
+    | {
+        /**
+         * e.g., "45" or "12+"
+         */
+        value: string;
+        /**
+         * e.g., "Publications" or "Grants Secured"
+         */
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  primaryCTA: {
+    /**
+     * e.g., "View Publications" or "Contact Me"
+     */
+    label: string;
+    /**
+     * e.g., "/publications" or "/contact"
+     */
+    url: string;
+  };
+  secondaryCTA: {
+    /**
+     * e.g., "Download CV" or "Learn More"
+     */
+    label: string;
+    /**
+     * e.g., "/cv" or "/about"
+     */
+    url: string;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'personalHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ImpactBlock".
  */
 export interface ImpactBlock {
@@ -1172,6 +1238,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        personalHero?: T | PersonalHeroBlockSelect<T>;
         impact?: T | ImpactBlockSelect<T>;
         publications?: T | PublicationsBlockSelect<T>;
         mediaOutreach?: T | MediaOutreachBlockSelect<T>;
@@ -1275,6 +1342,38 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PersonalHeroBlock_select".
+ */
+export interface PersonalHeroBlockSelect<T extends boolean = true> {
+  name?: T;
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  imageUrl?: T;
+  stats?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  primaryCTA?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  secondaryCTA?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
   id?: T;
   blockName?: T;
 }

@@ -9,6 +9,7 @@ import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 
 import { Impact } from '../../blocks/Impact/config'
+import { PersonalHero } from '../../blocks/PersonalHero/config'
 import { Publications } from '../../blocks/Publications/config'
 import { MediaOutreach } from '../../blocks/MediaOutreach/config'
 import { FeaturedWorks } from '../../blocks/FeaturedWorks/config'
@@ -89,7 +90,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 MediaBlock,
                 Archive,
                 FormBlock,
-
+                PersonalHero,
                 Impact,
                 Publications,
                 MediaOutreach,

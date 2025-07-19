@@ -9,6 +9,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 
 import { ImpactSection } from '@/blocks/Impact/Component'
+import { PersonalHero } from '@/blocks/PersonalHero/Component'
 import { PublicationsSection } from '@/blocks/Publications/Component'
 import { MediaOutreachSection } from '@/blocks/MediaOutreach/Component'
 import { FeaturedWorksSection } from '@/blocks/FeaturedWorks/Component'
@@ -24,6 +25,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
 
   impact: ImpactSection,
+  personalHero: PersonalHero,
   publications: PublicationsSection,
   mediaOutreach: MediaOutreachSection,
   featuredWorks: FeaturedWorksSection,
