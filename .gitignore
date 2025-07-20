@@ -53,3 +53,5 @@ playwright-report/
 
 # Docker
 *.local
+.vercel
+.env*.local
