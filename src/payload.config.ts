@@ -5,6 +5,7 @@ import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
+import fs from 'fs'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
@@ -20,6 +21,17 @@ import { getServerSideURL } from './utilities/getURL'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+// Check if we're in a writable environment
+const isWritableEnvironment = () => {
+  try {
+    const testDir = process.env.VERCEL ? '/tmp' : path.resolve(dirname)
+    fs.accessSync(testDir, fs.constants.W_OK)
+    return true
+  } catch {
+    return false
+  }
+}
+
 export default buildConfig({
   admin: {
     components: {
@@ -30,9 +42,11 @@ export default buildConfig({
       // Feel free to delete this at any time. Simply remove the line below.
       beforeDashboard: ['@/components/BeforeDashboard'],
     },
-    importMap: {
-      baseDir: path.resolve(dirname),
-    },
+    importMap: isWritableEnvironment()
+      ? {
+          baseDir: process.env.VERCEL ? '/tmp' : path.resolve(dirname),
+        }
+      : undefined,
     user: Users.slug,
     livePreview: {
       breakpoints: [
