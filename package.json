@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "prebuild": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "ci": "payload migrate && pnpm build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",

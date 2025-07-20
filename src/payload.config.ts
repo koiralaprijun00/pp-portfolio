@@ -67,12 +67,13 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    vercelBlobStorage({
-      collections: {
-        media: true,
-      },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
+    // Temporarily disabled until BLOB_READ_WRITE_TOKEN is configured
+    // vercelBlobStorage({
+    //   collections: {
+    //     media: true,
+    //   },
+    //   token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    // }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
