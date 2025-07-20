@@ -33,7 +33,7 @@ export const PersonalHero = ({
   secondaryCTA,
   stats,
 }: PersonalHeroProps) => (
-  <section className="relative h-[80vh] flex items-center overflow-hidden w-screen left-1/2 -translate-x-1/2">
+  <section className="relative h-[95vh] flex items-center overflow-hidden w-screen left-1/2 -translate-x-1/2 -mt-0">
     {/* Background Image */}
     {imageUrl && (
       <div className="absolute inset-0 w-screen">

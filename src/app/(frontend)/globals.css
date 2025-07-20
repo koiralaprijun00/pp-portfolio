@@ -69,3 +69,9 @@ html[data-theme='light'] {
 html {
   opacity: 1 !important;
 }
+
+/* Remove any gap between navbar and hero section */
+body > div > header + * {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
