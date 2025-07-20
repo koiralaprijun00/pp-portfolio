@@ -19,7 +19,7 @@ export const PersonalHero: Block = {
       required: true,
       label: 'Professional Title',
       admin: {
-        description: 'Main professional title (e.g., "Professor of Computer Science")',
+        description: 'Main professionals title (e.g., "Professor of Computer Science")',
       },
     },
     {
