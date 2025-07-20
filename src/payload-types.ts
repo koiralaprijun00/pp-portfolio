@@ -758,7 +758,7 @@ export interface PersonalHeroBlock {
    */
   name: string;
   /**
-   * Main professional title (e.g., "Professor of Computer Science")
+   * Main professionals title (e.g., "Professor of Computer Science")
    */
   title: string;
   /**
