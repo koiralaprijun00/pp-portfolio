@@ -60,10 +60,12 @@
   }
 }
 
-html {
-  opacity: 0;
+/* Theme-based styling */
+html[data-theme='light'] {
+  color-scheme: light;
 }
 
-html[data-theme='light'] {
-  opacity: initial;
+/* Fallback to ensure page is always visible */
+html {
+  opacity: 1 !important;
 }
