@@ -1,17 +1,12 @@
 import { Plugin } from 'payload'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 export const storagePlugin = (): Plugin[] => {
-  // Temporarily disabled Vercel Blob Storage to fix upload handler errors
-  // Will use local storage until the issue is resolved
-  // To re-enable: uncomment the code below and ensure BLOB_READ_WRITE_TOKEN is set
-
-  /*
-  const hasValidToken = 
-    process.env.BLOB_READ_WRITE_TOKEN && 
-    process.env.BLOB_READ_WRITE_TOKEN.length > 10
+  // Use blob storage when token is available (both dev and production)
+  const hasValidToken =
+    process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN.length > 10
 
   if (hasValidToken) {
-    const { vercelBlobStorage } = require('@payloadcms/storage-vercel-blob')
     return [
       vercelBlobStorage({
         collections: { media: true },
@@ -19,7 +14,7 @@ export const storagePlugin = (): Plugin[] => {
       }),
     ]
   }
-  */
 
+  // Fallback to local storage if no token
   return []
 }
