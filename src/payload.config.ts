@@ -32,6 +32,7 @@ const isWritableEnvironment = () => {
   }
 }
 
+// Force cache invalidation - 1737468000000
 export default buildConfig({
   admin: {
     components: {

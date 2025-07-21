@@ -39,7 +39,8 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
-    ...(process.env.BLOB_READ_WRITE_TOKEN
+    ...(process.env.BLOB_READ_WRITE_TOKEN &&
+    process.env.BLOB_READ_WRITE_TOKEN !== 'placeholder-token'
       ? {}
       : {
           staticDir: path.resolve(dirname, '../../public/media'),

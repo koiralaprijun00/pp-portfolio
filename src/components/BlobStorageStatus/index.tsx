@@ -1,7 +1,9 @@
 import React from 'react'
 
 export const BlobStorageStatus: React.FC = () => {
-  const isBlobConfigured = Boolean(process.env.BLOB_READ_WRITE_TOKEN)
+  const isBlobConfigured = Boolean(
+    process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN !== 'placeholder-token',
+  )
 
   return (
     <div
