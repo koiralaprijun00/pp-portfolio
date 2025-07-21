@@ -40,7 +40,14 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     // Use local storage only if blob storage token is not available
-    ...(!(process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN.length > 10)
+    ...(!(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (
+        (process as any).env.BLOB_READ_WRITE_TOKEN &&
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (process as any).env.BLOB_READ_WRITE_TOKEN.length > 10
+      )
+    )
       ? { staticDir: path.resolve(dirname, '../../public/media') }
       : {}),
     adminThumbnail: 'thumbnail',
