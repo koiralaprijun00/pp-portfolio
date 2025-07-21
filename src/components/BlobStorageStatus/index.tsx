@@ -1,26 +1,22 @@
 import React from 'react'
 
 export const BlobStorageStatus: React.FC = () => {
-  const isBlobConfigured = Boolean(
-    process.env.BLOB_READ_WRITE_TOKEN && process.env.BLOB_READ_WRITE_TOKEN !== 'placeholder-token',
-  )
+  // Temporarily disabled blob storage to fix upload handler errors
 
   return (
     <div
       style={{
-        backgroundColor: isBlobConfigured ? '#d4edda' : '#fff3cd',
-        border: `1px solid ${isBlobConfigured ? '#c3e6cb' : '#ffeaa7'}`,
+        backgroundColor: '#f8d7da',
+        border: '1px solid #f5c6cb',
         borderRadius: '4px',
         padding: '12px',
         margin: '16px 0',
-        color: isBlobConfigured ? '#155724' : '#856404',
+        color: '#721c24',
       }}
     >
       <h4 style={{ margin: '0 0 8px 0' }}>Storage Configuration</h4>
       <p style={{ margin: 0 }}>
-        {isBlobConfigured
-          ? '✅ Vercel Blob Storage is active - files will be stored in the cloud'
-          : '⚠️ Using local file storage - add BLOB_READ_WRITE_TOKEN to enable Vercel Blob Storage'}
+        📁 Using local file storage - Vercel Blob Storage temporarily disabled to fix errors
       </p>
     </div>
   )
