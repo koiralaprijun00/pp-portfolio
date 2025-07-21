@@ -16,6 +16,7 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -80,13 +81,12 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    // Temporarily disabled until BLOB_READ_WRITE_TOKEN is configured
-    // vercelBlobStorage({
-    //   collections: {
-    //     media: true,
-    //   },
-    //   token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    // }),
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
